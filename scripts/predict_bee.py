@@ -37,3 +37,38 @@ class_mapping = {
     5 : 'VSH Italian honey bee',
     6 : 'Western honey bee'
  }
+
+def main():
+    """
+    this is the main function
+    """
+    # print the curent dir
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, 'models', 'best_model1.h5')
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <image_path>")
+        sys.exit(1)
+ 
+    image_path = sys.argv[1]
+    model = tf.keras.models.load_model(model_path)
+
+    # Process input data (e.g., image) and make predictions
+    result = model.predict(np.array(load_and_preprocess_image(image_path)))
+    
+    # Get the predicted class with the highest probability
+    predicted_class = np.argmax(result[0], axis=-1)
+    # Get the class name of the predicted class
+    predicted_class_name = class_mapping[predicted_class]
+    # Get the probability of the predicted class
+    probability = result[0][predicted_class]
+    # save the result in the results folder
+    # get the number of the result
+    result_number = len(os.listdir(os.path.join(script_dir, 'results')))
+    # create the result dict
+    
+    result_dict = {
+        predicted_class_name: probability
+    }
+    # save the result in the results folder
+    with open(os.path.join(script_dir, 'results', 'result{}_plants.json'.format(result_number)), 'w') as outfile:
+        json.dump(result_dict, outfile)
