@@ -88,3 +88,23 @@ class_mapping = {
     56: 'red leaf spot in tea',
     57: 'tomato canker'
 }
+
+def main():
+    """
+    this is the main function
+    """
+    # print the curent dir
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    print("Directory of the currently running script (Method 1):", script_dir)
+    model_path = os.path.join(script_dir, 'models', 'ResNet50_model.h5')
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <image_path>")
+        sys.exit(1)
+ 
+    image_path = sys.argv[1]
+    model = tf.keras.models.load_model(model_path)
+
+    # Process input data (e.g., image) and make predictions
+    result = model.predict(np.array(load_and_preprocess_image(image_path)))
+    
+    
