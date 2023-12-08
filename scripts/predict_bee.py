@@ -13,3 +13,16 @@ import cv2
 import tensorflow as tf
 import numpy as np
 
+# loading and preprocessing the image
+def load_and_preprocess_image(image_path):
+    """
+    this function is used to load and preprocess the image
+    """
+    # load the image
+    img = cv2.imread(image_path)
+    # Resize the image to match the model's input shape
+    img = cv2.resize(img, (100, 100))
+    # Preprocess the image (you may need to adjust preprocessing based on your model)
+    img = img / 255.0  # Normalize pixel values to be between 0 and 1
+    img = np.expand_dims(img, axis=0)  # Add batch dimension
+    return img
