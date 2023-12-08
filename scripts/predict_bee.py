@@ -70,5 +70,9 @@ def main():
         predicted_class_name: probability
     }
     # save the result in the results folder
-    with open(os.path.join(script_dir, 'results', 'result{}_plants.json'.format(result_number)), 'w') as outfile:
+    with open(os.path.join(script_dir, 'results', 'result{}_bees.json'.format(result_number)), 'w') as outfile:
         json.dump(result_dict, outfile)
+
+if __name__ == "__main__":
+    main()
+    
