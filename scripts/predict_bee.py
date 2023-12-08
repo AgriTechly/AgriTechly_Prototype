@@ -26,3 +26,14 @@ def load_and_preprocess_image(image_path):
     img = img / 255.0  # Normalize pixel values to be between 0 and 1
     img = np.expand_dims(img, axis=0)  # Add batch dimension
     return img
+
+# Class mapping of the 58 classes in the dataset
+class_mapping = {
+    0 :'-1',
+    1 : '1 Mixed local stock 2',
+    2 : 'Carniolan honey bee',
+    3 : 'Italian honey bee',
+    4 : 'Russian honey bee',
+    5 : 'VSH Italian honey bee',
+    6 : 'Western honey bee'
+ }
