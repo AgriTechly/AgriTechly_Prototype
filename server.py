@@ -10,7 +10,7 @@ import subprocess
 import json
 import os
 
-app = Flask(__name__, template_folder='dist', static_folder='dist/static')
+app = Flask(__name__, template_folder='dist', static_folder='static')
 
 @app.route('/')
 def index():
@@ -21,12 +21,15 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    print('upload')
     try:
         uploaded_file = request.files['image']
+        print(uploaded_file)
         if uploaded_file:
             # Save the uploaded file
             uploaded_file.save('uploaded_image.jpg')
 
+            print('saved')
             # Run plant prediction script
             plant_result = subprocess.run(['python', '/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             update_json('plant', plant_result.stdout)

@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriTechly</title>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/src/input.css') }}">
+    <script >
+      // print the current directory in the console
+      console.log("current directory: " + window.location.pathname);
+    </script>
 </head>
 <body>
 
@@ -14,16 +18,16 @@
     <div class="bg-gradient-to-b from-white to-gray-50 h-screen">
         <div class="max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8 ">
           <div class="sm:flex sm:flex-col sm:align-center">
-            <img class="w-1/2 mx-auto my-auto" src="405589387_338088125523287_8906114815950837658_n.png" alt="">
+            <img class="w-1/2 mx-auto my-auto" src="{{ url_for('static', filename='images/405589387_338088125523287_8906114815950837658_n.png') }}" alt="">
             <p class="mt-5 text-xl text-gray-500 sm:text-center">a simple prototype that can predict diseases of your animals or plants .</p>
           </div>
           <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
             <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
                 <div class="p-6" id="honeyBee">          
                       <h2 class="text-xl leading-6 font-medium text-gray-900">Honey Bee</h2>
-                      <img class="rounded-2xl mt-2" src="Bee.jpg" alt="">
+                      <img class="rounded-2xl mt-2" src="{{ url_for('static', filename='images/Bee.jpg') }}" alt="">
                       <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-honeyBee')">Upload Photo</a>
-                      <input type="file" id="imageInput-honeyBee" style="display:none;" value="bee" onchange="handleImageUpload(this)">
+                      <input type="file" id="imageInput-honeyBee" style="display:none;" value="bee" name="image" onchange="handleImageUpload(this)">
                   </div>
               <div class="pt-6 pb-8 px-6">
                 <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
@@ -50,9 +54,9 @@
             <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
                 <div class="p-6" id="plant">
                     <h2 class="text-lg leading-6 font-medium text-gray-900">Plant</h2>
-                    <img class="rounded-2xl mt-2" src="plant.jpg" alt="">
+                    <img class="rounded-2xl mt-2" src="{{ url_for('static', filename='images/plant.jpg') }}" alt="">
                     <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-plant')">Insert image of plant</a>
-                    <input type="file" id="imageInput-plant" style="display:none;" value="plant" onchange="handleImageUpload(this)">
+                    <input type="file" id="imageInput-plant" style="display:none;" value="plant" name="image" onchange="handleImageUpload(this)">
                   </div>
               <div class="pt-6 pb-8 px-6">
                 <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
@@ -99,6 +103,6 @@
         </div>
     </div>
   </form>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
