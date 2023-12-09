@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body>
+
+    <div class="bg-gradient-to-b from-white to-gray-50 h-screen">
+        <div class="max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8 ">
+          <div class="sm:flex sm:flex-col sm:align-center">
+            <img class="w-1/2 mx-auto my-auto" src="405589387_338088125523287_8906114815950837658_n.png" alt="">
+            <p class="mt-5 text-xl text-gray-500 sm:text-center">a simple prototype that can predict diseases of your animals or plants .</p>
+          </div>
+          <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
+            <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                <div class="p-6" id="honeyBee">
+                    <h2 class="text-xl leading-6 font-medium text-gray-900">Honey Bee</h2>
+                    <img class="rounded-2xl mt-2" src="Bee.jpg" alt="">
+                    <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-honeyBee')">Upload Photo</a>
+                    <input type="file" id="imageInput-honeyBee" style="display:none;" onchange="handleImageUpload(this)">
+                  </div>
+              <div class="pt-6 pb-8 px-6">
+                <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li class="flex space-x-3">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-500">Predict health of a Bee from image</span>
+                  </li>
+    
+                  <li class="flex space-x-3">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-500">high accuarcy.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+    
+            <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+                <div class="p-6" id="plant">
+                    <h2 class="text-lg leading-6 font-medium text-gray-900">Plant</h2>
+                    <img class="rounded-2xl mt-2" src="plant.jpg" alt="">
+                    <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-plant')">Insert image of plant</a>
+                    <input type="file" id="imageInput-plant" style="display:none;" onchange="handleImageUpload(this)">
+                  </div>
+              <div class="pt-6 pb-8 px-6">
+                <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li class="flex space-x-3">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-500">Predict plants diseases from images </span>
+                  </li>
+    
+                  <li class="flex space-x-3">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-500">high accuarcy.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+    
+            <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
+              <div class="p-6">
+                <h2 class="text-lg leading-6 font-medium text-gray-900">not added yet</h2>
+                <p class="mt-4 text-sm text-gray-500">still on the work</p>
+                <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700">Insert none</a>
+              </div>
+              <div class="pt-6 pb-8 px-6">
+                <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
+                <ul role="list" class="mt-6 space-y-4">
+                  <li class="flex space-x-3">
+                    <!-- Heroicon name: solid/check -->
+                    <svg class="flex-shrink-0 h-5 w-5 text-green-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-sm text-gray-500">NONE</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
