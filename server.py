@@ -32,6 +32,7 @@ def upload():
             print('saved')
             # Run plant prediction script
             plant_result = subprocess.run(['python', '/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
+            print("run")
             update_json('plant', plant_result.stdout)
 
             """
@@ -44,7 +45,7 @@ def upload():
         else:
             return jsonify({'success': False, 'message': 'No file uploaded'})
     except Exception as e:
-        return jsonify({'success': False, 'message': str(e)})
+        return jsonify({'success': False, 'message': str(e), 'trace': 'exception'})
 
 def update_json(category, result):
     # Update your JSON file based on the result
