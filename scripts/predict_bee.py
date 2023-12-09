@@ -63,11 +63,12 @@ def main():
     probability = result[0][predicted_class]
     # save the result in the results folder
     # get the number of the result
-    result_number = len(os.listdir(os.path.join(script_dir, 'results')))
+    result_number = len(os.listdir(os.path.join(script_dir, 'results'))) + 1
     # create the result dict
     
     result_dict = {
-        predicted_class_name: probability
+        "class": predicted_class_name,
+        "probability": probability
     }
     # save the result in the results folder
     with open(os.path.join(script_dir, 'results', 'result{}_bees.json'.format(result_number)), 'w') as outfile:
