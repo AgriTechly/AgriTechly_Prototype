@@ -9,6 +9,9 @@ from flask import Flask, request, jsonify, render_template
 import subprocess
 import json
 import os
+import sys
+
+sys.path.append('/venv/Lib/site-packages')
 
 app = Flask(__name__, template_folder='dist', static_folder='static')
 
@@ -34,7 +37,7 @@ def upload():
             print(os.getcwd())
             current_dir = os.getcwd()
             # Run plant prediction script
-            plant_result = subprocess.run(['python', current_dir+'/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
+            plant_result = subprocess.run(['python', current_dir+'\scripts\predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             print("run")
             print("Subprocess Output:", plant_result.stdout)
             print("Subprocess Errors:", plant_result.stderr)

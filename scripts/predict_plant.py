@@ -7,6 +7,7 @@ it will be executed by the server
 
 # import the necessary packages
 import sys
+sys.path.append('/venv/Lib/site-packages')
 import os
 import json
 import cv2
