@@ -30,9 +30,15 @@ def upload():
             uploaded_file.save('uploaded_image.jpg')
 
             print('saved')
+            # get the current directory
+            print(os.getcwd())
+            current_dir = os.getcwd()
             # Run plant prediction script
-            plant_result = subprocess.run(['python', '/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
+            plant_result = subprocess.run(['python', current_dir+'/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             print("run")
+            print("Subprocess Output:", plant_result.stdout)
+            print("Subprocess Errors:", plant_result.stderr)
+            print("Subprocess Return Code:", plant_result.returncode)
             update_json('plant', plant_result.stdout)
 
             """
