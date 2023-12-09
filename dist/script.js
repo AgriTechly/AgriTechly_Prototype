@@ -1,6 +1,9 @@
 function activateImageInput(inputId) {
     const imageInput = document.getElementById(inputId);
     imageInput.click();
+
+    // Submit the form using AJAX
+    submitForm();
   }
 
   function handlePlantImageUpload(input) {
