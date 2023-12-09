@@ -18,10 +18,12 @@
           <div class="mt-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-none xl:mx-0 xl:grid-cols-3">
             <div class="border border-gray-200 rounded-lg shadow-sm divide-y divide-gray-200">
                 <div class="p-6" id="honeyBee">
-                    <h2 class="text-xl leading-6 font-medium text-gray-900">Honey Bee</h2>
-                    <img class="rounded-2xl mt-2" src="Bee.jpg" alt="">
-                    <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-honeyBee')">Upload Photo</a>
-                    <input type="file" id="imageInput-honeyBee" style="display:none;" onchange="handleBeeImageUpload(this)">
+                    <form  action="process_bee.php" method="post" enctype="multipart/form-data">
+                      <h2 class="text-xl leading-6 font-medium text-gray-900">Honey Bee</h2>
+                      <img class="rounded-2xl mt-2" src="Bee.jpg" alt="">
+                      <a href="#" class="mt-8 block w-full bg-purple-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-purple-700" onclick="activateImageInput('imageInput-honeyBee')">Upload Photo</a>
+                      <input type="file" id="imageInput-honeyBee" style="display:none;" onchange="handleBeeImageUpload(this)">
+                    </form>
                   </div>
               <div class="pt-6 pb-8 px-6">
                 <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">Features</h3>
