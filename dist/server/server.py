@@ -25,12 +25,14 @@ def upload():
             uploaded_file.save('uploaded_image.jpg')
 
             # Run plant prediction script
-            plant_result = subprocess.run(['python', 'predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
+            plant_result = subprocess.run(['python', '/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             update_json('plant', plant_result.stdout)
 
+            """
             # Run bee prediction script
             bee_result = subprocess.run(['python', 'predict_bee.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             update_json('bee', bee_result.stdout)
+            """
 
             return jsonify({'success': True, 'message': 'File uploaded and processed successfully'})
         else:

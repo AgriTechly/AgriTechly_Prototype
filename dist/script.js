@@ -19,14 +19,3 @@ function handleImageUpload(input) {
   }
 }
 
-// Disable the default form submission behavior
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('form').addEventListener('submit', function (e) {
-      e.preventDefault();
-  });
-});
-
-// Optional: Trigger the image input click when the page loads (you can remove this if not needed)
-document.addEventListener('DOMContentLoaded', function () {
-  activateImageInput('imageInput-honeyBee'); // Replace with the actual input ID
-});
