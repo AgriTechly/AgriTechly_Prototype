@@ -13,6 +13,7 @@ function activateImageInput(inputId) {
       // You may want to display the selected image
       const imgElement = input.previousElementSibling.previousElementSibling; // Assuming the img element is two elements before the input
       imgElement.src = URL.createObjectURL(selectedFile);
+      runPlantScript(imgElement.src);
     }
   }
 
@@ -43,6 +44,7 @@ function activateImageInput(inputId) {
       // You may want to display the selected image
       const imgElement = input.previousElementSibling.previousElementSibling; // Assuming the img element is two elements before the input
       imgElement.src = URL.createObjectURL(selectedFile);
+      runBeeScript(imgElement.src);
     }
   }
 
