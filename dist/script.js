@@ -58,3 +58,10 @@ function activateImageInput(inputId) {
     // Send the form data
     xhr.send(formData);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitForm();
+  });
+});
