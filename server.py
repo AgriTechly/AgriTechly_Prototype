@@ -10,10 +10,13 @@ import subprocess
 import json
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='dist', static_folder='dist/static')
 
 @app.route('/')
 def index():
+    # print current directory
+    print(os.getcwd())
+    print(os.getcwd()+'\dist\index.html')
     return render_template('index.html')
 
 @app.route('/upload', methods=['POST'])
@@ -52,4 +55,4 @@ def update_json(category, result):
         json.dump(result_dict, outfile)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5500)
