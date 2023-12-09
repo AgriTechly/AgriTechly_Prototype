@@ -38,3 +38,14 @@ def upload():
     except Exception as e:
         return jsonify({'success': False, 'message': str(e)})
 
+def update_json(category, result):
+    # Update your JSON file based on the result
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    result_number = len(os.listdir(os.path.join(script_dir, 'results'))) + 1
+    result_dict = {
+        "category": category,
+        "result": json.loads(result)
+    }
+    with open(os.path.join(script_dir, 'results', f'result{result_number}_{category}.json'), 'w') as outfile:
+        json.dump(result_dict, outfile)
+
