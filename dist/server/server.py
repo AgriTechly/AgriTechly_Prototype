@@ -49,3 +49,5 @@ def update_json(category, result):
     with open(os.path.join(script_dir, 'results', f'result{result_number}_{category}.json'), 'w') as outfile:
         json.dump(result_dict, outfile)
 
+if __name__ == '__main__':
+    app.run(debug=True)
