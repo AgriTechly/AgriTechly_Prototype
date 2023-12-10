@@ -111,16 +111,13 @@ def main():
     predicted_class = np.argmax(result[0], axis=-1)
     # Get the class name of the predicted class
     predicted_class_name = class_mapping[predicted_class]
-    # Get the probability of the predicted class
-    probability = result[0][predicted_class]
     # save the result in the results folder
     # get the number of the result
     result_number = len(os.listdir(os.path.join(script_dir, 'results'))) + 1
     # create the result dict
     
     result_dict = {
-        "class": predicted_class_name,
-        "probability": probability
+        "class": predicted_class_name
     }
     # save the result in the results folder
     with open(os.path.join(script_dir, 'results', 'result{}_plants.json'.format(result_number)), 'w') as outfile:

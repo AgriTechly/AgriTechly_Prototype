@@ -36,8 +36,10 @@ def upload():
             # get the current directory
             print(os.getcwd())
             current_dir = os.getcwd()
+            # change \ to / in current dir
+            current_dir = current_dir.replace("\\","/")
             # Run plant prediction script
-            plant_result = subprocess.run(['python', current_dir+'\scripts\predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
+            plant_result = subprocess.run(['python', current_dir+'/scripts/predict_plant.py', 'uploaded_image.jpg'], capture_output=True, text=True)
             print("run")
             print("Subprocess Output:", plant_result.stdout)
             print("Subprocess Errors:", plant_result.stderr)
@@ -58,13 +60,15 @@ def upload():
 
 def update_json(category, result):
     # Update your JSON file based on the result
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    result_number = len(os.listdir(os.path.join(script_dir, 'results'))) + 1
+    current_dir = os.getcwd()
+    # change \ to / in current dir
+    current_dir = current_dir.replace("\\","/") + '/scripts/results'
+    result_number = len(os.listdir(current_dir)) + 1
     result_dict = {
         "category": category,
         "result": json.loads(result)
     }
-    with open(os.path.join(script_dir, 'results', f'result{result_number}_{category}.json'), 'w') as outfile:
+    with open(os.path.join(current_dir, f'result{result_number}_{category}.json'), 'w') as outfile:
         json.dump(result_dict, outfile)
 
 if __name__ == '__main__':
